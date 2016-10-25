@@ -1,10 +1,36 @@
-def create_hash(temp,alt,press)	
-	
-	ha = { :temperature => temp, :altitude => alt, :pressure => press}
-	
-	puts ha
+module TextAnalyzer
+	@body
+	def num_words
+		puts @body
+	end
+	def num_chars
+		puts @body
+	end
 end
 
-create_hash(23, 4500, 234)
-create_hash(10, 12000, 345)
+class Article
+	include TextAnalyzer
+	def initialize(body)
+		print @body	
+	end	
+end
+
+class Comment
+	include TextAnalyzer
+	def initialize(body)
+		print @body
+	end	
+end
+
+a1 = Article.new("Este es el cuerpo del artículo")
+a1.num_chars #=> 30
+
+c1 = Comment.new("Este es un comentario")
+
+
+
+
+
+
+
 
