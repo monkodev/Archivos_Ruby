@@ -1,0 +1,6 @@
+3,lavar platos,true
+4,juntar papeles,true
+5,exprimir limones,false
+3,lavar platos,true
+4,juntar papeles,true
+5,exprimir limones,false

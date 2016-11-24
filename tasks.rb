@@ -15,20 +15,21 @@ def load_tasks(file)
 end
 
 def save_tasks(file,jash)
-
 	if File.file?(file)	
-		File.open(file, 'w') do |f1|
-  			#File.open(file).each{|linea| puts jash}
-  			f1.puts jash
+		fail=File.open(file, 'a')
+  		jash.each do |element|
+  			fail.puts (element[:id].to_s + "," + element[:name] + "," + element[:done].to_s)
 		end
+		fail.close		
 	else
-		File.open(file, 'w') do |f2|
-  			# '\n' es el retorno de carro
-  			f2.puts jash
-  		end
+		fefe=File.open(file, 'w') 
+  		jash.each do |element|
+  			fefe.puts (element[:id].to_s + "," + element[:name] + "," + element[:done].to_s)
+		end		
+		fefe.close	 			
 	end
 end
 
-save_tasks('tasks.txt', [ { id: 1, name: "Hacer tareas", done: true }, { id: 2, name: "Lavar ropa", done: false }])
+save_tasks('taskinggg.txt', [ { id: 3, name: "lavar platos", done: true }, { id: 4, name: "juntar papeles", done: true }, { id: 5, name: "exprimir limones", done: false }])
 
 

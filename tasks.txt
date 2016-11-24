@@ -1,2 +1,8 @@
 {:id=>1, :name=>"Hacer tareas", :done=>true}
 {:id=>2, :name=>"Lavar ropa", :done=>false}
+{:id=>3, :name=>"lavar platos", :done=>true}
+{:id=>4, :name=>"juntar papeles", :done=>true}
+1,Hacer tareas,true
+2,Lavar ropa,false
+3,lavar platos,true
+4,juntar papeles,true
