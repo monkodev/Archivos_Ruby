@@ -1,35 +1,34 @@
-def load_tasks(file)
-	
+def load_tasks(file)	
 	hashi=[]
-	#if File.exist?(file)==false
-	if File.exist?(file)==false
-
-	else
-			array=IO.readlines(file)
-			if array.empty?
-				
+	if File.file?(file)	
+		File.foreach(file) do |linea|
+			if linea.size >=1
+				id, name, done = linea.split(',')
+				hashi.push({ id: id.to_i, name: name, done: done == "true\n" ? true : false })
 			else
-				prueba = Array.new(2, Hash.new)
-				# prueba crea => [{}, {}]
 
-				a=["id: ","name: ","done: "]
-				
-				ha = File.foreach(file).map { |line| line.split(',') }
-				#a.map! {|x,y,z| x +  }
-				#hashi=a+ha
-				#hash = ha[0][0]
-				#hashi=a.merge! ha
-				for i in (0..ha.size-1)						
-					#hashi[i]= { "id:".to_s => ha[i][0].to_i, "name:".to_s => ha[i][1], "done:".to_s => (ha[i][2].chomp).to_s.eql?('true') ? true : false }						
-					#hashi[i]= { ha[i][0].to_i, ha[i][1],  (ha[i][2].chomp).to_s.eql?('true') ? true : false }
-					 
-					hashi[i]=a[i].to_s+ha[i].to_s
-				end
-			end		
-	end
+			end
+		end					
+	end	
 	puts hashi
+	return hashi
 end
 
-load_tasks('test.txt')
+def save_tasks(file,jash)
+
+	if File.file?(file)	
+		File.open(file, 'w') do |f1|
+  			#File.open(file).each{|linea| puts jash}
+  			f1.puts jash
+		end
+	else
+		File.open(file, 'w') do |f2|
+  			# '\n' es el retorno de carro
+  			f2.puts jash
+  		end
+	end
+end
+
+save_tasks('tasks.txt', [ { id: 1, name: "Hacer tareas", done: true }, { id: 2, name: "Lavar ropa", done: false }])
 
 
