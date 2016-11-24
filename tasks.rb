@@ -5,12 +5,10 @@ def load_tasks(file)
 			if linea.size >=1
 				id, name, done = linea.split(',')
 				hashi.push({ id: id.to_i, name: name, done: done == "true\n" ? true : false })
-			else
-
 			end
 		end					
 	end	
-	puts hashi
+	
 	return hashi
 end
 
